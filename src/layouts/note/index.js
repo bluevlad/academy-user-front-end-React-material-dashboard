@@ -123,11 +123,7 @@ function NoteList() {
                 <MDTypography variant="h6" color="white">
                   쪽지 관리
                 </MDTypography>
-                <MDButton
-                  variant="gradient"
-                  color="dark"
-                  onClick={() => navigate("/note/detail")}
-                >
+                <MDButton variant="gradient" color="dark" onClick={() => navigate("/note/detail")}>
                   <Icon sx={{ fontWeight: "bold" }}>add</Icon>
                   &nbsp;보내기
                 </MDButton>

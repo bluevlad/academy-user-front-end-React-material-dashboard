@@ -52,7 +52,7 @@ function OfflineLectureList() {
               {item.subjectTitle}
             </MDTypography>
           ),
-          subjectIsuse: item.subjectIsuse === 'Y' ? '사용' : '미사용',
+          subjectIsuse: item.subjectIsuse === "Y" ? "사용" : "미사용",
           regDt: item.regDt,
         }));
         setRows(formattedRows);
@@ -105,7 +105,7 @@ function OfflineLectureList() {
         </Grid>
       </MDBox>
       <Footer />
-    </DashboardLayout >
+    </DashboardLayout>
   );
 }
 

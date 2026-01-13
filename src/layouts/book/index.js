@@ -111,9 +111,7 @@ function BookList() {
         {book.price ? `${book.price.toLocaleString()}원` : "0원"}
       </MDTypography>
     ),
-    rating: (
-      <Rating value={book.scope || 0} readOnly size="small" />
-    ),
+    rating: <Rating value={book.scope || 0} readOnly size="small" />,
     regDt: (
       <MDTypography variant="caption" color="text" fontWeight="regular">
         {book.regDt ? new Date(book.regDt).toLocaleDateString("ko-KR") : "-"}

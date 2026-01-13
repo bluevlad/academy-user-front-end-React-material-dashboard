@@ -8,9 +8,7 @@ import { BASE_API } from "../../constants/index";
 // Get FAQ List
 export const getFaqList = async (params) => {
   try {
-    const response = await superagent
-      .get(`${BASE_API}/board/faq/getFaqList`)
-      .query(params);
+    const response = await superagent.get(`${BASE_API}/board/faq/getFaqList`).query(params);
     return response.body;
   } catch (error) {
     console.error("Error fetching faq list:", error);
@@ -21,9 +19,7 @@ export const getFaqList = async (params) => {
 // Get FAQ Detail
 export const getFaqDetail = async (faqSeq) => {
   try {
-    const response = await superagent
-      .get(`${BASE_API}/board/faq/getFaqDetail`)
-      .query({ faqSeq });
+    const response = await superagent.get(`${BASE_API}/board/faq/getFaqDetail`).query({ faqSeq });
     return response.body;
   } catch (error) {
     console.error("Error fetching faq detail:", error);
@@ -34,9 +30,7 @@ export const getFaqDetail = async (faqSeq) => {
 // Insert FAQ
 export const insertFaq = async (data) => {
   try {
-    const response = await superagent
-      .post(`${BASE_API}/board/faq/insertFaq`)
-      .send(data);
+    const response = await superagent.post(`${BASE_API}/board/faq/insertFaq`).send(data);
     return response.body;
   } catch (error) {
     console.error("Error inserting faq:", error);
@@ -47,9 +41,7 @@ export const insertFaq = async (data) => {
 // Update FAQ
 export const updateFaq = async (data) => {
   try {
-    const response = await superagent
-      .post(`${BASE_API}/board/faq/updateFaq`)
-      .send(data);
+    const response = await superagent.post(`${BASE_API}/board/faq/updateFaq`).send(data);
     return response.body;
   } catch (error) {
     console.error("Error updating faq:", error);
@@ -60,9 +52,7 @@ export const updateFaq = async (data) => {
 // Delete FAQ
 export const deleteFaq = async (data) => {
   try {
-    const response = await superagent
-      .post(`${BASE_API}/board/faq/deleteFaq`)
-      .send(data);
+    const response = await superagent.post(`${BASE_API}/board/faq/deleteFaq`).send(data);
     return response.body;
   } catch (error) {
     console.error("Error deleting faq:", error);

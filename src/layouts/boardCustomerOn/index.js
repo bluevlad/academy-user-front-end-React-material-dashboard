@@ -91,7 +91,7 @@ function BoardCustomerOn() {
     ),
     replyStatus: (
       <MDTypography variant="caption" color="text" fontWeight="regular">
-        {board.replyYn === 'Y' ? "답변완료" : "대기중"}
+        {board.replyYn === "Y" ? "답변완료" : "대기중"}
       </MDTypography>
     ),
     action: (

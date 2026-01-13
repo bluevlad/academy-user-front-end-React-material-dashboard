@@ -34,9 +34,7 @@ export const getBoardCmmntyDetail = async (boardCmmntySeq) => {
 // Insert Board Community
 export const insertBoardCmmnty = async (data) => {
   try {
-    const response = await superagent
-      .post(`${BASE_API}/board/cmmnty/insertBoardCmmnty`)
-      .send(data);
+    const response = await superagent.post(`${BASE_API}/board/cmmnty/insertBoardCmmnty`).send(data);
     return response.body;
   } catch (error) {
     console.error("Error inserting board community:", error);
@@ -47,9 +45,7 @@ export const insertBoardCmmnty = async (data) => {
 // Update Board Community
 export const updateBoardCmmnty = async (data) => {
   try {
-    const response = await superagent
-      .post(`${BASE_API}/board/cmmnty/updateBoardCmmnty`)
-      .send(data);
+    const response = await superagent.post(`${BASE_API}/board/cmmnty/updateBoardCmmnty`).send(data);
     return response.body;
   } catch (error) {
     console.error("Error updating board community:", error);
@@ -60,9 +56,7 @@ export const updateBoardCmmnty = async (data) => {
 // Delete Board Community
 export const deleteBoardCmmnty = async (data) => {
   try {
-    const response = await superagent
-      .post(`${BASE_API}/board/cmmnty/deleteBoardCmmnty`)
-      .send(data);
+    const response = await superagent.post(`${BASE_API}/board/cmmnty/deleteBoardCmmnty`).send(data);
     return response.body;
   } catch (error) {
     console.error("Error deleting board community:", error);

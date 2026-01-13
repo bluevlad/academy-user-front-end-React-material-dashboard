@@ -43,7 +43,7 @@ function CouponList() {
           expday: `${item.EXPDAY}일`,
           expdatee: item.EXPDATEE,
           regdate: item.REGDATE,
-          isUse: item.IS_USE === 'Y' ? "활성" : "비활성",
+          isUse: item.IS_USE === "Y" ? "활성" : "비활성",
         }));
         setRows(formattedRows);
       }
@@ -54,13 +54,18 @@ function CouponList() {
 
   const getAddFlagName = (flag) => {
     switch (flag) {
-      case 'O': return '동영상';
-      case 'M': return '모의고사';
-      case 'L': return '교재';
-      case 'F': return '학원';
-      default: return '';
+      case "O":
+        return "동영상";
+      case "M":
+        return "모의고사";
+      case "L":
+        return "교재";
+      case "F":
+        return "학원";
+      default:
+        return "";
     }
-  }
+  };
 
   return (
     <DashboardLayout>

@@ -240,7 +240,11 @@ function PopupDetail() {
                     />
                   </Grid>
                   <Grid item xs={12} display="flex" justifyContent="flex-end" gap={1}>
-                    <MDButton variant="outlined" color="secondary" onClick={() => navigate("/popup")}>
+                    <MDButton
+                      variant="outlined"
+                      color="secondary"
+                      onClick={() => navigate("/popup")}
+                    >
                       목록
                     </MDButton>
                     {popNo && (

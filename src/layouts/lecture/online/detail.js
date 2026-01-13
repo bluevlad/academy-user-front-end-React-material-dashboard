@@ -94,7 +94,7 @@ function OnlineLectureDetail() {
       // await deleteLecture({ leccode });
       // navigate("/lecture/online");
     }
-  }
+  };
 
   return (
     <DashboardLayout>

@@ -40,7 +40,12 @@ function SurveyList() {
             columns: [
               { Header: "No", accessor: "SURVEY_NO", align: "center" },
               { Header: "제목", accessor: "SURVEY_TITLE", align: "left" },
-              { Header: "기간", accessor: "PERIOD", align: "center", Cell: ({ row }) => `${row.original.START_DT} ~ ${row.original.END_DT}` },
+              {
+                Header: "기간",
+                accessor: "PERIOD",
+                align: "center",
+                Cell: ({ row }) => `${row.original.START_DT} ~ ${row.original.END_DT}`,
+              },
               { Header: "상태", accessor: "USE_YN", align: "center" },
             ],
             rows: result.data || [],

@@ -152,7 +152,11 @@ function NoteDetail() {
                     />
                   </Grid>
                   <Grid item xs={12} display="flex" justifyContent="flex-end" gap={1}>
-                    <MDButton variant="outlined" color="secondary" onClick={() => navigate("/note")}>
+                    <MDButton
+                      variant="outlined"
+                      color="secondary"
+                      onClick={() => navigate("/note")}
+                    >
                       목록
                     </MDButton>
                     {noteNo && (

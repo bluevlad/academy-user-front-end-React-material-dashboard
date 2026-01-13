@@ -34,9 +34,7 @@ export const getBoardNoticeDetail = async (boardNoticeSeq) => {
 // Insert Board Notice
 export const insertBoardNotice = async (data) => {
   try {
-    const response = await superagent
-      .post(`${BASE_API}/board/notice/insertBoardNotice`)
-      .send(data);
+    const response = await superagent.post(`${BASE_API}/board/notice/insertBoardNotice`).send(data);
     return response.body;
   } catch (error) {
     console.error("Error inserting board notice:", error);
@@ -47,9 +45,7 @@ export const insertBoardNotice = async (data) => {
 // Update Board Notice
 export const updateBoardNotice = async (data) => {
   try {
-    const response = await superagent
-      .post(`${BASE_API}/board/notice/updateBoardNotice`)
-      .send(data);
+    const response = await superagent.post(`${BASE_API}/board/notice/updateBoardNotice`).send(data);
     return response.body;
   } catch (error) {
     console.error("Error updating board notice:", error);
@@ -60,9 +56,7 @@ export const updateBoardNotice = async (data) => {
 // Delete Board Notice
 export const deleteBoardNotice = async (data) => {
   try {
-    const response = await superagent
-      .post(`${BASE_API}/board/notice/deleteBoardNotice`)
-      .send(data);
+    const response = await superagent.post(`${BASE_API}/board/notice/deleteBoardNotice`).send(data);
     return response.body;
   } catch (error) {
     console.error("Error deleting board notice:", error);

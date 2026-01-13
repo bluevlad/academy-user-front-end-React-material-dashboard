@@ -104,7 +104,7 @@ function OnlineLectureList() {
         </Grid>
       </MDBox>
       <Footer />
-    </DashboardLayout >
+    </DashboardLayout>
   );
 }
 

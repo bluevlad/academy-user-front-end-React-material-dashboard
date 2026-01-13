@@ -45,7 +45,7 @@ function LectureReplyDetail() {
       const response = await getLectureReplyDetail({
         DETAIL_LECCODE: code,
         currentPageReply: 1,
-        pageRowReply: 100
+        pageRowReply: 100,
       });
 
       if (response) {
@@ -60,10 +60,14 @@ function LectureReplyDetail() {
             content: item.CONTENT || item.content || "-", // Assuming content field exist
             regDt: item.REG_DT || item.regDt || "-",
             action: (
-              <MDButton variant="text" color="error" onClick={() => handleDelete(item.SEQ || item.seq)}>
+              <MDButton
+                variant="text"
+                color="error"
+                onClick={() => handleDelete(item.SEQ || item.seq)}
+              >
                 삭제
               </MDButton>
-            )
+            ),
           }));
           setRows(formattedRows);
         }
@@ -104,13 +108,18 @@ function LectureReplyDetail() {
                 coloredShadow="info"
               >
                 <MDTypography variant="h6" color="white">
-                  수강 후기 관리 - {detail.SUBJECT_TITLE || detail.subjectTitle || "강의명 로딩중..."}
+                  수강 후기 관리 -{" "}
+                  {detail.SUBJECT_TITLE || detail.subjectTitle || "강의명 로딩중..."}
                 </MDTypography>
               </MDBox>
               <MDBox pt={4} pb={3} px={3}>
                 <MDBox mb={3}>
-                  <MDTypography variant="body2">강사: {detail.TEACHER_NM || detail.teacherNm}</MDTypography>
-                  <MDTypography variant="body2">코드: {detail.LECCODE || detail.leccode}</MDTypography>
+                  <MDTypography variant="body2">
+                    강사: {detail.TEACHER_NM || detail.teacherNm}
+                  </MDTypography>
+                  <MDTypography variant="body2">
+                    코드: {detail.LECCODE || detail.leccode}
+                  </MDTypography>
                 </MDBox>
                 <DataTable
                   table={{ columns, rows }}

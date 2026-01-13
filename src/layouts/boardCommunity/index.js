@@ -38,7 +38,7 @@ function BoardCommunity() {
       const params = createPaginationParams({ pageIndex: currentPage });
       const data = await getBoardCmmntyList(params);
 
-      // Assuming response structure similar to board API. 
+      // Assuming response structure similar to board API.
       // If the backend returns different structure, this needs to be updated.
       setBoardList(data.boardList || []);
       setPaginationInfo(data.paginationInfo || null);

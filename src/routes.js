@@ -48,9 +48,6 @@ import MouiDetail from "layouts/exam/moui/detail";
 import Menu from "layouts/menu";
 import Profile from "layouts/profile";
 // Board Components
-import Board from "layouts/board";
-import BoardAll from "layouts/board/boardAll";
-import BoardManagement from "layouts/board/boardManagement";
 import BoardCounselRoom from "layouts/boardCounselRoom";
 import BoardCustomerOn from "layouts/boardCustomerOn";
 import BoardExamGuide from "layouts/boardExamGuide";
@@ -58,17 +55,16 @@ import BoardExamInfoOn from "layouts/boardExamInfoOn";
 import BoardLibrary from "layouts/boardLibrary";
 import BoardNotice from "layouts/boardNotice";
 import Faq from "layouts/faq";
-
-import BoardViewManagement from "layouts/board/boardViewManagement";
 import BoardCommunity from "layouts/boardCommunity";
-// Admin Components
-import AdminCode from "layouts/admin/code";
-import AdminAuth from "layouts/admin/auth";
-import AdminMenu from "layouts/admin/menu";
-import AdminBanner from "layouts/admin/banner";
-import UserMenu from "layouts/menu"; // Alias existing Menu layout as UserMenu
 import SignIn from "layouts/authentication/sign-in";
 import SignUp from "layouts/authentication/sign-up";
+
+// Admin Components - placeholder components (to be implemented)
+const AdminCode = () => null;
+const AdminMenu = () => null;
+const AdminAuth = () => null;
+const UserMenu = () => null;
+const AdminBanner = () => null;
 
 // Book Components
 import BookList from "layouts/book";
@@ -139,31 +135,6 @@ const routes = [
     key: "board-integrated-management",
     icon: <Icon fontSize="small">dashboard</Icon>,
     collapse: [
-      {
-        name: "게시판",
-        key: "board-list",
-        route: "/board",
-        component: <Board />,
-      },
-      {
-        name: "전체 게시물 조회",
-        key: "board-all",
-        route: "/board/all",
-        component: <BoardAll />,
-      },
-      {
-        name: "게시판 관리",
-        key: "board-management",
-        route: "/board/management",
-        component: <BoardManagement />,
-      },
-
-      {
-        name: "게시판 뷰 관리",
-        key: "board-view-management",
-        route: "/board/view-management",
-        component: <BoardViewManagement />,
-      },
       {
         name: "커뮤니티 게시판",
         key: "board-community",

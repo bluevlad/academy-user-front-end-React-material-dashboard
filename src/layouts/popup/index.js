@@ -121,11 +121,7 @@ function PopupList() {
                 <MDTypography variant="h6" color="white">
                   팝업 관리
                 </MDTypography>
-                <MDButton
-                  variant="gradient"
-                  color="dark"
-                  onClick={() => navigate("/popup/detail")}
-                >
+                <MDButton variant="gradient" color="dark" onClick={() => navigate("/popup/detail")}>
                   <Icon sx={{ fontWeight: "bold" }}>add</Icon>
                   &nbsp;등록
                 </MDButton>

@@ -33,8 +33,8 @@ function LectureReplyList() {
       if (response && response.list) {
         const formattedRows = response.list.map((item, index) => ({
           no: index + 1,
-          subjectNm: item.SUBJECT_NM || '-',
-          teacherNm: item.TEACHER_NM || '-',
+          subjectNm: item.SUBJECT_NM || "-",
+          teacherNm: item.TEACHER_NM || "-",
           subjectTitle: (
             <MDTypography
               component={Link}
@@ -43,11 +43,11 @@ function LectureReplyList() {
               color="text"
               fontWeight="medium"
             >
-              {item.SUBJECT_TITLE || '-'}
+              {item.SUBJECT_TITLE || "-"}
             </MDTypography>
           ),
-          userName: item.USER_NM || '-',
-          regDt: item.REG_DT || '-',
+          userName: item.USER_NM || "-",
+          regDt: item.REG_DT || "-",
         }));
         setRows(formattedRows);
       }
