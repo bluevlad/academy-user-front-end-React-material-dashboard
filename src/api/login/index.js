@@ -4,7 +4,7 @@ import { BASE_API } from "../../constants/index";
 export const login = async (credentials) => {
   try {
     const response = await superagent
-      .post(`${BASE_API}/auth/sign-in`)
+      .post(`${BASE_API}/login/login`)
       .type("form")
       .send(credentials);
     return response.body;

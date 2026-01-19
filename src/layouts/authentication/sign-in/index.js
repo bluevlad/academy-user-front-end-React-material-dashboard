@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Card from "@mui/material/Card";
 import Switch from "@mui/material/Switch";
@@ -22,6 +22,15 @@ function Basic() {
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
+  // Check if user is already logged in
+  useEffect(() => {
+    const token = sessionStorage.getItem("token");
+    const userProfile = sessionStorage.getItem("userProfile");
+    if (token && userProfile) {
+      navigate("/profile");
+    }
+  }, [navigate]);
+
   const handleSetRememberMe = () => setRememberMe(!rememberMe);
 
   const handleSubmit = async (e) => {
@@ -33,31 +42,27 @@ function Basic() {
 
       const response = await login(payload);
 
-      if (response && response.token) {
+      if (response && response.retMsg === "OK" && response.token) {
+        // Save token to session storage
         sessionStorage.setItem("token", response.token);
 
+        // Save user profile to session storage
         const userProfile = {
           userId: response.userId,
-          userNm: response.userNm,
-          userPwd: response.userPwd,
-          sex: response.sex,
+          userName: response.userName,
           userRole: response.userRole,
-          adminRole: response.adminRole,
-          birthDay: response.birthDay,
-          email: response.email,
-          zipCode: response.zipCode,
-          address1: response.address1,
-          address2: response.address2,
-          userPoint: response.userPoint,
-          memo: response.memo,
-          pic: response.pic,
-          isokSms: response.isokSms,
-          isokEmail: response.isokEmail,
         };
         sessionStorage.setItem("userProfile", JSON.stringify(userProfile));
-        navigate("/dashboard");
+
+        // If "Remember me" is checked, also save to localStorage
+        if (rememberMe) {
+          localStorage.setItem("token", response.token);
+          localStorage.setItem("userProfile", JSON.stringify(userProfile));
+        }
+
+        navigate("/profile");
       } else {
-        throw new Error("Login failed: No token received");
+        throw new Error(response?.message || "Login failed: No token received");
       }
     } catch (err) {
       console.error(err);

@@ -14,38 +14,37 @@ import ProfileInfoCard from "examples/Cards/InfoCards/ProfileInfoCard";
 import Header from "layouts/profile/components/Header";
 import PlatformSettings from "layouts/profile/components/PlatformSettings";
 import MDButton from "components/MDButton";
-import { getProfile } from "api/login";
 
 function Overview() {
   const [user, setUser] = useState(null);
   const navigate = useNavigate();
 
   useEffect(() => {
-    const fetchProfile = async () => {
-      try {
-        const token = sessionStorage.getItem("token");
-        const storedProfile = sessionStorage.getItem("userProfile");
-        const userId = storedProfile ? JSON.parse(storedProfile).userId : null;
+    // Load user profile from session storage
+    const token = sessionStorage.getItem("token") || localStorage.getItem("token");
+    const storedProfile =
+      sessionStorage.getItem("userProfile") || localStorage.getItem("userProfile");
 
-        if (token && userId) {
-          const data = await getProfile(userId, token);
-          setUser(data);
-        } else {
-          navigate("/authentication/sign-in");
-        }
+    if (token && storedProfile) {
+      try {
+        const profileData = JSON.parse(storedProfile);
+        setUser(profileData);
       } catch (error) {
-        console.error("Failed to load profile", error);
+        console.error("Failed to parse profile", error);
         navigate("/authentication/sign-in");
       }
-    };
-    fetchProfile();
+    } else {
+      navigate("/authentication/sign-in");
+    }
   }, [navigate]);
 
   const logout = () => {
-    sessionStorage.clear();
-    // Also clear localStorage if we used it before, to be safe
+    // Clear session storage
+    sessionStorage.removeItem("token");
+    sessionStorage.removeItem("userProfile");
+    // Clear localStorage (for "Remember me" feature)
     localStorage.removeItem("token");
-    localStorage.removeItem("userId");
+    localStorage.removeItem("userProfile");
     navigate("/authentication/sign-in");
   };
 
@@ -64,17 +63,11 @@ function Overview() {
               {user ? (
                 <ProfileInfoCard
                   title="profile information"
-                  description={`${user.memo || user.userNm || user.userId}`}
+                  description={`Welcome, ${user.userName || user.userId}!`}
                   info={{
-                    fullName: user.userNm || user.userId || "",
+                    fullName: user.userName || user.userId || "",
                     userId: user.userId || "",
-                    email: user.email || "",
-                    location: user.address1
-                      ? `${user.address1} ${user.address2 || ""}`
-                      : "Unspecified",
-                    birthDay: user.birthDay || "Unspecified",
-                    sex: user.sex || "Unspecified",
-                    point: user.userPoint ? `${user.userPoint}` : "0",
+                    role: user.userRole || "USER",
                   }}
                   social={[
                     {
