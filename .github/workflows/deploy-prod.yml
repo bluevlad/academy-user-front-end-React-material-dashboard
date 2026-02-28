@@ -1,0 +1,21 @@
+name: Deploy to Local Windows Docker
+
+on:
+  push:
+    branches: [ "prod" ]
+
+jobs:
+  deploy:
+    name: Deploy on Local Machine
+    runs-on: self-hosted
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Docker Compose Down
+      run: docker-compose down --remove-orphans
+      continue-on-error: true
+
+    - name: Docker Compose Up
+      run: docker-compose up -d --build
